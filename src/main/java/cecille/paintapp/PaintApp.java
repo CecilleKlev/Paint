@@ -20,7 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
-import cecille.Line;
+import cecille.paintapp.Line;
 
 public class PaintApp extends Application {
 
