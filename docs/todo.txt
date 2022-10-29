@@ -1,0 +1,9 @@
++ create shape class
++ create line class
++ create rectangle class
++ create circle class
++ create text class
++ display a line on the screen
++ display a rectangle on the screen
++ display a circle on the screen
++ display a text on the screen
