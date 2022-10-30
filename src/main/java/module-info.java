@@ -1,7 +1,7 @@
 module cecille.paintapp {
-    requires javafx.controls;
-    requires javafx.fxml;
+  requires javafx.controls;
+  requires javafx.fxml;
 
-    opens cecille.paintapp to javafx.fxml;
-    exports cecille.paintapp;
+  opens cecille.paintapp to javafx.fxml;
+  exports cecille.paintapp ;
 }
