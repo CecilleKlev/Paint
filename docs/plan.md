@@ -65,8 +65,9 @@ when you have a question:
 ## Commands
 
 ```bash
-# compile and run application
-mvn package
+mvn prettier:write   # format source files
+mvn package          # compile application
+# run application
 java --module-path 'C:\Program Files\Java\javafx-sdk-19\lib' --add-modules javafx.controls,javafx.fxml  -jar target/PaintApp-1.0-SNAPSHOT.jar
 ```
 
