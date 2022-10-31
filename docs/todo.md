@@ -55,11 +55,22 @@ InformationPanel:
 
 - Programmer must use JavaDoc
 
+## Commands
+
+```bash
+# compile application
+mvn compile
+
+# compile and run application
+mvn package && java --module-path 'C:\Program Files\Java\javafx-sdk-19\lib' --add-modules javafx.controls,javafx.fxml  -jar target/PaintApp-1.0-SNAPSHOT.jar
+```
+
+
 ## todo
 
-1.  ck - Create backlog list from requirements
+1.  ck + Create backlog list from requirements
 2.  bm - Create shape drag functionality
-3.  ck - In SceneBuilder create ToggleButton for: Line, Circle, Rectangle, Text
+3.  ck + In SceneBuilder create Window
 4.  ck - Setup JavaDoc maven plugin
 
 ## doing
