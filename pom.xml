@@ -23,7 +23,6 @@
     </dependencies>
     <build>
         <sourceDirectory>src</sourceDirectory>
-        <testSourceDirectory>test</testSourceDirectory>
         <plugins>
             <plugin>
               <groupId>com.hubspot.maven.plugins</groupId>
@@ -55,7 +54,7 @@
                   <manifest>
                     <addClasspath>true</addClasspath>
                     <classpathPrefix>target/classes/</classpathPrefix>
-                    <mainClass>cecille.paintapp.Launcher</mainClass>
+                    <mainClass>cecille.paintapp.App</mainClass>
                   </manifest>
                 </archive>
               </configuration>
@@ -73,7 +72,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>cecille.paintapp.Launcher</mainClass>
+                    <mainClass>cecille.paintapp.App</mainClass>
                 </configuration>
                 <executions>
                     <execution>
