@@ -65,12 +65,15 @@ mvn compile
 mvn package && java --module-path 'C:\Program Files\Java\javafx-sdk-19\lib' --add-modules javafx.controls,javafx.fxml  -jar target/PaintApp-1.0-SNAPSHOT.jar
 ```
 
+## todo ck
 
-## todo
+- In SceneBuilder create Window
 
-1.  ck + Create backlog list from requirements
-2.  bm - Create shape drag functionality
-3.  ck + In SceneBuilder create Window
-4.  ck - Setup JavaDoc maven plugin
+* Setup JavaDoc maven plugin
+* Set scene title
+* Move the control buttons to left, leave the Information panel on right
 
-## doing
+## todo bm
+
+- Create backlog list from requirements
+- Create a line from user mouse clicks
