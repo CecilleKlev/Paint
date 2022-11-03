@@ -12,105 +12,85 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" prefHeight="650.0" prefWidth="800.0" fx:id="root" fx:controller="cecille.paintapp.AppController" onMouseClicked="#appWindowClick">
-   <right>
-      <VBox prefHeight="600.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Line shapes: ">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Line" toggleGroup="$shapebutton" onAction="#toggleToLine">
-               <toggleGroup>
-                  <ToggleGroup fx:id="shapebutton" />
-               </toggleGroup>
-            </ToggleButton>
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Arc" toggleGroup="$shapebutton" onAction="#toggleToArc" />
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Polyline" toggleGroup="$shapebutton" onAction="#toggleToPolyLine" />
-            <Label text="Flat shapes:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Rectangle" toggleGroup="$shapebutton" onAction="#toggleToRectangle" />
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Circle" toggleGroup="$shapebutton" onAction="#toggleToCircle" />
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Ellipse" toggleGroup="$shapebutton" onAction="#toggleToEllipse" />
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Polygon" toggleGroup="$shapebutton" onAction="#toggleToPolygon" />
-            <Label text="Text:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Text" toggleGroup="$shapebutton" onAction="#toggleToText" />
-            <HBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <VBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Stroke">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <ColorPicker style="-fx-min-width: 80;" onAction="#strokeColor" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Fill">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <ColorPicker style="-fx-min-width: 80;" onAction="#fillColor" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <VBox prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #D3D3D3; -fx-border-color: grey;">
-               <children>
-                  <Label style="-fx-padding: 5;" text="Information Panel">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-padding: 5;" text="Shape:" />
-                  <Label style="-fx-padding: 5;" text="Color:" />
-                  <Label style="-fx-padding: 5;" text="Line length:" />
-                  <Label style="-fx-padding: 5;" text="Area:" />
-                  <Label style="-fx-padding: 5;" text="Text:" />
-                  <Label style="-fx-padding: 5;" text="z-order: " />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
+  <left>
+    <VBox prefHeight="600.0" prefWidth="200.0" spacing="5.0">
+      <BorderPane.margin>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </BorderPane.margin>
+      <children>
+        <Label text="Line shapes">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+        </Label>
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Line" toggleGroup="$shapebutton" onAction="#toggleToLine">
+          <toggleGroup>
+            <ToggleGroup fx:id="shapebutton" />
+          </toggleGroup>
+        </ToggleButton>
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Arc" toggleGroup="$shapebutton" onAction="#toggleToArc" />
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Polyline" toggleGroup="$shapebutton" onAction="#toggleToPolyLine" />
+        <Label text="Flat shapes">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+        </Label>
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Rectangle" toggleGroup="$shapebutton" onAction="#toggleToRectangle" />
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Circle" toggleGroup="$shapebutton" onAction="#toggleToCircle" />
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Ellipse" toggleGroup="$shapebutton" onAction="#toggleToEllipse" />
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Polygon" toggleGroup="$shapebutton" onAction="#toggleToPolygon" />
+        <Label text="Text">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+        </Label>
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Text" toggleGroup="$shapebutton" onAction="#toggleToText" />
+      </children>
+    </VBox>
+  </left>
+  <right>
+    <VBox prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #000; -fx-margin: 10;">
+      <children>
+        <Label style="-fx-padding: 5;" text="Information Panel">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+        </Label>
+        <Label style="-fx-padding: 5;" text="Shape:" />
+        <Label style="-fx-padding: 5;" text="Color:" />
+        <Label style="-fx-padding: 5;" text="Line length:" />
+        <Label style="-fx-padding: 5;" text="Area:" />
+        <Label style="-fx-padding: 5;" text="Text:" />
+        <HBox>
+          <children>
+            <Label style="-fx-padding: 5;" text="Z-Order" />
+            <Button mnemonicParsing="false" text="Up" onAction="#upButton" />
+            <Button mnemonicParsing="false" text="Down" onAction="#downButton" />
+          </children>
+        </HBox>
+        <HBox>
+          <children>
+            <VBox prefWidth="100.0">
+              <children>
+                <Label style="-fx-padding-left: 5;" text="Stroke" />
+                <ColorPicker onAction="#strokeColor" />
+              </children>
             </VBox>
-            <HBox prefHeight="8.0" prefWidth="800.0">
-               <children>
-                  <Button mnemonicParsing="false" text="Up" onAction="#upButton">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Down" onAction="#downButton">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets left="10.0" right="10.0" />
-         </BorderPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </VBox>
-   </right>
+            <VBox prefWidth="100.0">
+              <children>
+                <Label style="-fx-padding-left: 5;" text="Fill" />
+                <ColorPicker style="-fx-margin: 5;"  onAction="#fillColor" />
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+      </children>
+      <BorderPane.margin>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </BorderPane.margin>
+      <cursor>
+        <Cursor fx:constant="HAND" />
+      </cursor>
+    </VBox>
+  </right>
 </BorderPane>
