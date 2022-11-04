@@ -12,13 +12,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class AppController {
-
   @FXML
   private BorderPane root;
 
   private enum UserClickState {
     CLICKED_0,
-    CLICKED_1,
+    CLICKED_1
   }
 
   private UserClickState clickState = UserClickState.CLICKED_0;

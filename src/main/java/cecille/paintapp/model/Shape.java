@@ -1,7 +1,6 @@
 package cecille.paintapp.model;
 
 public abstract class Shape {
-
   private double startX;
   private double startY;
   private double endX;
