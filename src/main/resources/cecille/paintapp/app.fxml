@@ -25,7 +25,7 @@
             <Font name="System Bold" size="14.0" />
           </font>
         </Label>
-        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 100;" text="Line" toggleGroup="$shapebutton" onAction="#toggleToLine">
+        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 100;" text="Line" selected="true" toggleGroup="$shapebutton" onAction="#toggleToLine">
           <toggleGroup>
             <ToggleGroup fx:id="shapebutton" />
           </toggleGroup>
