@@ -4,14 +4,14 @@
 
 Shape:
 
-- Line types:
-  - line
++ Line types:
+  + line
 - Surface types:
   + rectangle
-  - circle
+  + circle
   - ellipse
-- Text:
-  - text
++ Text:
+  + text
 
 InformationPanel:
 

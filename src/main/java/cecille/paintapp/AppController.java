@@ -4,24 +4,19 @@ import cecille.paintapp.model.Circle;
 import cecille.paintapp.model.Line;
 import cecille.paintapp.model.Rectangle;
 import cecille.paintapp.model.Shape;
+import cecille.paintapp.model.Text;
 import java.io.IOException;
 import java.lang.Object;
 import java.util.LinkedList;
 import java.util.List;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Point2D;
 import javafx.scene.Cursor;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 public class AppController {
   @FXML
@@ -77,7 +72,7 @@ public class AppController {
 
     if (currentModelShape != null) {
       // turn on visual indicator
-      currentModelShape.jfx.setStrokeWidth(5d);
+      currentModelShape.jfx.setStrokeWidth(3d);
 
       currentModelShape.updateInformation(
         lblShapeType,
@@ -148,6 +143,15 @@ public class AppController {
         case ELLIPSE:
           break;
         case TEXT:
+          modelShape =
+            new Text(
+              this.createStartX,
+              this.createStartY,
+              event.getX(),
+              event.getY(),
+              cpFill.getValue(),
+              cpStroke.getValue()
+            );
           break;
       }
 
