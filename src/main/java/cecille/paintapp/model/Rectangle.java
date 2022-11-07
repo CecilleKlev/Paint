@@ -1,5 +1,6 @@
 package cecille.paintapp.model;
 
+import java.lang.Math;
 import javafx.scene.paint.Color;
 
 public class Rectangle extends Shape {
@@ -9,8 +10,8 @@ public class Rectangle extends Shape {
   }
 
   protected String getMetric(double startX, double startY, double endX, double endY) {
-    final double width = endX - startX;
-    final double height = endY - startY;
+    final double width = Math.abs(endX - startX);
+    final double height = Math.abs(endY - startY);
     return "Area: " + (width * height);
   }
 
@@ -20,8 +21,8 @@ public class Rectangle extends Shape {
     double endX,
     double endY
   ) {
-    final double width = endX - startX;
-    final double height = endY - startY;
+    final double width = Math.abs(endX - startX);
+    final double height = Math.abs(endY - startY);
     return new javafx.scene.shape.Rectangle(startX, startY, width, height);
   }
 }

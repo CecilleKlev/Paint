@@ -10,8 +10,8 @@ public class Circle extends Shape {
   }
 
   protected String getMetric(double startX, double startY, double endX, double endY) {
-    final double width = endX - startX;
-    final double height = endY - startY;
+    final double width = Math.abs(endX - startX);
+    final double height = Math.abs(endY - startY);
     final double diameter = Math.max(width, height);
     final double centerX = startX + width / 2;
     final double centerY = startY + height / 2;
@@ -25,11 +25,11 @@ public class Circle extends Shape {
     double endX,
     double endY
   ) {
-    final double width = endX - startX;
-    final double height = endY - startY;
+    final double width = Math.abs(endX - startX);
+    final double height = Math.abs(endY - startY);
     final double diameter = Math.max(width, height);
-    final double centerX = startX + width / 2;
-    final double centerY = startY + height / 2;
+    final double centerX = Math.min(startX, endX) + width / 2;
+    final double centerY = Math.min(startY, endY) + height / 2;
     final double radius = diameter / 2;
     return new javafx.scene.shape.Circle(centerX, centerY, radius);
   }

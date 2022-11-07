@@ -1,6 +1,7 @@
 package cecille.paintapp;
 
 import cecille.paintapp.model.Circle;
+import cecille.paintapp.model.Line;
 import cecille.paintapp.model.Rectangle;
 import cecille.paintapp.model.Shape;
 import java.io.IOException;
@@ -112,6 +113,15 @@ public class AppController {
 
       switch (createShapeOfType) {
         case LINE:
+          modelShape =
+            new Line(
+              this.createStartX,
+              this.createStartY,
+              event.getX(),
+              event.getY(),
+              cpFill.getValue(),
+              cpStroke.getValue()
+            );
           break;
         case RECTANGLE:
           modelShape =

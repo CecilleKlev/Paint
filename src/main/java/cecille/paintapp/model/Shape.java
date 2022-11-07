@@ -29,22 +29,12 @@ public abstract class Shape {
     Color stroke
   ) {
     this.type = "Shape: " + type;
-    // coordinates
-    if (ax < bx) {
-      this.startX = ax;
-      this.endX = bx;
-    } else {
-      this.startX = bx;
-      this.endX = ax;
-    }
 
-    if (ay < by) {
-      this.startY = ay;
-      this.endY = by;
-    } else {
-      this.startY = by;
-      this.endY = ay;
-    }
+    // coordinates
+    this.startX = ax;
+    this.startY = ay;
+    this.endX = bx;
+    this.endY = by;
 
     this.metric = getMetric(startX, startY, endX, endY);
 
