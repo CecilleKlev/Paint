@@ -33,8 +33,6 @@
             <ToggleGroup fx:id="shapebutton" />
           </toggleGroup>
         </ToggleButton>
-        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Arc" toggleGroup="$shapebutton" onAction="#toggleToArc" />
-        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Polyline" toggleGroup="$shapebutton" onAction="#toggleToPolyLine" />
         <Label text="Flat shapes">
           <font>
             <Font name="System Bold" size="14.0" />
@@ -43,7 +41,6 @@
         <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Rectangle" toggleGroup="$shapebutton" onAction="#toggleToRectangle" />
         <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Circle" toggleGroup="$shapebutton" onAction="#toggleToCircle" />
         <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Ellipse" toggleGroup="$shapebutton" onAction="#toggleToEllipse" />
-        <ToggleButton mnemonicParsing="false" style="-fx-min-width: 200;" text="Polygon" toggleGroup="$shapebutton" onAction="#toggleToPolygon" />
         <Label text="Text">
           <font>
             <Font name="System Bold" size="14.0" />

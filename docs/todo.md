@@ -9,7 +9,7 @@ Shape:
 - Surface types:
   + rectangle
   + circle
-  - ellipse
+  + ellipse
 + Text:
   + text
 
