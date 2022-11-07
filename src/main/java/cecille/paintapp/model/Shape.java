@@ -1,28 +1,34 @@
-package cecille.paintapp;
+package cecille.paintapp.model;
 
-import cecille.paintapp.AppController;
-import javafx.event.EventHandler;
+import java.lang.String;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
-public class Rectangle {
-  /*** rectangle information */
+public abstract class Shape {
+  /*** shape information */
   private final String type;
-  private final double area;
+  private final String metric;
 
   /*** coordinates */
-  protected double startX;
-  protected double startY;
-  protected double endX;
-  protected double endY;
+  private final double startX;
+  private final double startY;
+  private final double endX;
+  private final double endY;
 
-  /*** JavaFX controls */
+  /*** JavaFX shape */
   public final javafx.scene.shape.Shape jfx;
 
-  public Rectangle(double ax, double ay, double bx, double by, Color fill, Color stroke) {
+  public Shape(
+    String type,
+    double ax,
+    double ay,
+    double bx,
+    double by,
+    Color fill,
+    Color stroke
+  ) {
+    this.type = "Shape: " + type;
     // coordinates
     if (ax < bx) {
       this.startX = ax;
@@ -40,19 +46,27 @@ public class Rectangle {
       this.endY = ay;
     }
 
-    // rectangle stats
-    double width, height;
-    width = endX - startX;
-    height = endY - startY;
-    this.type = "Rectangle";
-    this.area = width * height;
+    this.metric = getMetric(startX, startY, endX, endY);
 
     // jfx shape object
-    this.jfx = new javafx.scene.shape.Rectangle(this.startX, this.startY, width, height);
-
+    this.jfx = createJfxShape(startX, startY, endX, endY);
     this.jfx.setFill(fill);
     this.jfx.setStroke(stroke);
   }
+
+  protected abstract String getMetric(
+    double startX,
+    double startY,
+    double endX,
+    double endY
+  );
+
+  protected abstract javafx.scene.shape.Shape createJfxShape(
+    double startX,
+    double startY,
+    double endX,
+    double endY
+  );
 
   public void updateInformation(
     Label lblType,
@@ -69,9 +83,9 @@ public class Rectangle {
     cpFill.setValue(Color.web(colorFill));
     cpStroke.setValue(Color.web(colorStroke));
 
-    lblType.setText("Shape: " + this.type);
+    lblType.setText(this.type);
     lblColor.setText("Stroke: " + colorStroke + " Fill: " + colorFill);
-    lblStat.setText("Area: " + this.area);
+    lblStat.setText(this.metric);
     lblCoordinates.setText(
       "Coords: (" +
       this.startX +

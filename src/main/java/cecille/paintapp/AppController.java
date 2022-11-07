@@ -1,6 +1,8 @@
 package cecille.paintapp;
 
-import cecille.paintapp.Rectangle;
+import cecille.paintapp.model.Circle;
+import cecille.paintapp.model.Rectangle;
+import cecille.paintapp.model.Shape;
 import java.io.IOException;
 import java.lang.Object;
 import java.util.LinkedList;
@@ -42,17 +44,29 @@ public class AppController {
   @FXML
   private ColorPicker cpStroke;
 
+  /*** shape creation */
+  private enum ShapeType {
+    LINE,
+    RECTANGLE,
+    CIRCLE,
+    ELLIPSE,
+    TEXT
+  }
+
+  private double createStartX, createStartY;
   private boolean userInitiatedCreateShape = false;
-  private double startX, startY;
-  private Rectangle currentModelShape = null;
-  private List<Rectangle> modelShapeList = new LinkedList<Rectangle>();
+  private ShapeType createShapeOfType = ShapeType.RECTANGLE;
+
+  /*** existing shape management */
+  private Shape currentModelShape = null;
+  private List<Shape> modelShapeList = new LinkedList<Shape>();
 
   @FXML
   public void initialize() {
     cpStroke.setValue(Color.BLACK);
   }
 
-  public void setCurrentShape(Rectangle shape) {
+  public void setCurrentShape(Shape shape) {
     if (currentModelShape != null) {
       // turn off visual indicator
       currentModelShape.jfx.setStrokeWidth(1d);
@@ -77,8 +91,8 @@ public class AppController {
 
   @FXML
   private void sketchMousePressed(MouseEvent event) throws IOException {
-    this.startX = event.getX();
-    this.startY = event.getY();
+    this.createStartX = event.getX();
+    this.createStartY = event.getY();
   }
 
   @FXML
@@ -94,27 +108,53 @@ public class AppController {
       sketch.setCursor(Cursor.DEFAULT);
 
       // create shape
-      Rectangle modelShape = new Rectangle(
-        this.startX,
-        this.startY,
-        event.getX(),
-        event.getY(),
-        cpFill.getValue(),
-        cpStroke.getValue()
-      );
-      modelShapeList.add(modelShape);
+      Shape modelShape = null;
 
-      // update gui
-      modelShape.jfx.setCursor(javafx.scene.Cursor.MOVE);
-      modelShape.jfx.setOnMousePressed(this::shapeMousePressed);
-      modelShape.jfx.setOnMouseDragged(this::shapeMouseDragged);
-      this.sketch.getChildren().add(modelShape.jfx);
+      switch (createShapeOfType) {
+        case LINE:
+          break;
+        case RECTANGLE:
+          modelShape =
+            new Rectangle(
+              this.createStartX,
+              this.createStartY,
+              event.getX(),
+              event.getY(),
+              cpFill.getValue(),
+              cpStroke.getValue()
+            );
+          break;
+        case CIRCLE:
+          modelShape =
+            new Circle(
+              this.createStartX,
+              this.createStartY,
+              event.getX(),
+              event.getY(),
+              cpFill.getValue(),
+              cpStroke.getValue()
+            );
+          break;
+        case ELLIPSE:
+          break;
+        case TEXT:
+          break;
+      }
 
-      this.setCurrentShape(modelShape);
+      if (modelShape != null) {
+        modelShapeList.add(modelShape);
+
+        // update gui
+        modelShape.jfx.setCursor(javafx.scene.Cursor.MOVE);
+        modelShape.jfx.setOnMousePressed(this::shapeMousePressed);
+        modelShape.jfx.setOnMouseDragged(this::shapeMouseDragged);
+        this.sketch.getChildren().add(modelShape.jfx);
+
+        this.setCurrentShape(modelShape);
+      }
     }
   }
 
-  // this should go in controller
   private double moveStartX, moveStartY, translateX, translateY;
 
   private void shapeMousePressed(MouseEvent event) {
@@ -122,7 +162,7 @@ public class AppController {
 
     // set current shape
     final Object eventFromJfxShape = event.getSource();
-    for (Rectangle modelShape : modelShapeList) {
+    for (Shape modelShape : modelShapeList) {
       if (modelShape.jfx == eventFromJfxShape) {
         this.setCurrentShape(modelShape);
         break;
@@ -145,7 +185,9 @@ public class AppController {
   }
 
   @FXML
-  private void toggleToLine() throws IOException {}
+  private void toggleToLine() throws IOException {
+    this.createShapeOfType = ShapeType.LINE;
+  }
 
   @FXML
   private void toggleToArc() throws IOException {}
@@ -154,19 +196,27 @@ public class AppController {
   private void toggleToPolyLine() throws IOException {}
 
   @FXML
-  private void toggleToRectangle() throws IOException {}
+  private void toggleToRectangle() throws IOException {
+    this.createShapeOfType = ShapeType.RECTANGLE;
+  }
 
   @FXML
-  private void toggleToCircle() throws IOException {}
+  private void toggleToCircle() throws IOException {
+    this.createShapeOfType = ShapeType.CIRCLE;
+  }
 
   @FXML
-  private void toggleToEllipse() throws IOException {}
+  private void toggleToEllipse() throws IOException {
+    this.createShapeOfType = ShapeType.ELLIPSE;
+  }
 
   @FXML
   private void toggleToPolygon() throws IOException {}
 
   @FXML
-  private void toggleToText() throws IOException {}
+  private void toggleToText() throws IOException {
+    this.createShapeOfType = ShapeType.TEXT;
+  }
 
   @FXML
   private void zorderDown() throws IOException {
