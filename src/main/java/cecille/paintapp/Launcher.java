@@ -18,7 +18,6 @@ import javafx.stage.Stage;
  * @web http://java-buddy.blogspot.com/
  */
 public class Launcher extends Application {
-
   Circle circle_Red, circle_Green, circle_Blue;
   double orgSceneX, orgSceneY;
   double orgTranslateX, orgTranslateY;
@@ -84,6 +83,7 @@ public class Launcher extends Application {
     Scene scene = new Scene(root, 400, 350);
     scene.setOnMousePressed(
       new EventHandler<MouseEvent>() {
+
         @Override
         public void handle(MouseEvent event) {
           System.out.println(
@@ -110,6 +110,7 @@ public class Launcher extends Application {
   }
 
   EventHandler<MouseEvent> circleOnMousePressedEventHandler = new EventHandler<MouseEvent>() {
+
     @Override
     public void handle(MouseEvent t) {
       orgSceneX = t.getSceneX();
@@ -120,6 +121,7 @@ public class Launcher extends Application {
   };
 
   EventHandler<MouseEvent> circleOnMouseDraggedEventHandler = new EventHandler<MouseEvent>() {
+
     @Override
     public void handle(MouseEvent t) {
       double offsetX = t.getSceneX() - orgSceneX;

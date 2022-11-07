@@ -7,7 +7,7 @@ Shape:
 - Line types:
   - line
 - Surface types:
-  - rectangle
+  + rectangle
   - circle
   - ellipse
 - Text:
@@ -64,16 +64,3 @@ mvn compile
 # compile and run application
 mvn package && java --module-path 'C:\Program Files\Java\javafx-sdk-19\lib' --add-modules javafx.controls,javafx.fxml  -jar target/PaintApp-1.0-SNAPSHOT.jar
 ```
-
-## todo ck
-
-- In SceneBuilder create Window
-
-* Setup JavaDoc maven plugin
-* Set scene title
-* Move the control buttons to left, leave the Information panel on right
-
-## todo bm
-
-- Create backlog list from requirements
-- Create a line from user mouse clicks
