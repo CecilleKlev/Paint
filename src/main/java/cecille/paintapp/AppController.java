@@ -1,6 +1,7 @@
 package cecille.paintapp;
 
 import cecille.paintapp.model.Circle;
+import cecille.paintapp.model.Ellipse;
 import cecille.paintapp.model.Line;
 import cecille.paintapp.model.Rectangle;
 import cecille.paintapp.model.Shape;
@@ -141,6 +142,15 @@ public class AppController {
             );
           break;
         case ELLIPSE:
+          modelShape =
+            new Ellipse(
+              this.createStartX,
+              this.createStartY,
+              event.getX(),
+              event.getY(),
+              cpFill.getValue(),
+              cpStroke.getValue()
+            );
           break;
         case TEXT:
           modelShape =
